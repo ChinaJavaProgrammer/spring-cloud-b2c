@@ -1,0 +1,34 @@
+server:
+  port: 8382 #服务端口
+
+spring:
+          application:
+            name: spring_cloud_alipay #服务名
+          redis:
+            port: 6379  #redis端口
+            password: redis!123 #redis密码
+            host: 106.13.42.41  #redis主机
+            jedis:  #jedis相关连接池设定
+              pool:
+                max-active: 8
+                min-idle: 0
+                max-wait: 8
+                max-idle: 0
+            sentinel: #redis哨兵配置
+              master: mymaster  #哨兵检测的主机点
+              nodes: 106.13.42.41:26379,106.13.42.41:26380,106.13.42.41:26381 #哨兵节点
+          cache:  #缓存配置
+            type: redis #缓存使用redis
+          datasource: #数据源配置
+            url: jdbc:mysql://localhost:3306/spring_cloud_vue?userUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC #数据库连接url
+            data-username: root #用户名
+            data-password: root #密码
+            driver-class-name: com.mysql.cj.jdbc.Driver #驱动
+          session:
+            store-type: redis
+gateway: https://openapi.alipaydev.com/gateway.do
+ali_private_key: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDKPHkWEHR0cTiz/w/VJUSSe0VEZtrFoD1+GkmydubJzP8fzOkT0aA6NnIO8XGdilWaTgKkMTS8y3p8e2RisV7KUq2YUlpzub87c8xBSRldcrmoMUimXCq+GRJOX4nPYG/gXtum1palXZz9xsBybiHAMWkZtBUXqetqtYfhjn/QMQWCq39ZtwIUf3bujhYOEOzHu8MmrVzJ8zUEz3zyOHfqAOtxoE1teYf+IGjI2is6PxcKG97AFXIa8acw392mThiRB2m+YQTTBrJFQWk2OGT5iGaRxWafyCsHBZwv0tBV2JdIuvALExwvgOyM0e767YkkmXskGq5JWSINB7l+mXd9AgMBAAECggEALPK/3t2NZIv9lFPuSutbkEsBnDBYE3CH+k0RcC7pIJUFZyX977+5ovaS5ytWmzMxz3fjMmcVV5jKAnzSVPUjIki5+I7lN69jB223ShNbJd/nz7AUe5Ukktezr+OgF41RkEbE/xHWra5exDC2eThtG/Bfca0KuxWzEyaBquonEjhNZ8UptzRZPSkERQLPhvXaNbWD5td+uQ6nAFGYMuEpupmvDIPPSVc3QysLERgn3+yFKoJvkiL0OHcHcx49yrxEHgR34tnRz5/eW7J2AEgXCw+UVz6TKKi1Tz3p92ZRA/LjjmswIk0SqfmtD0hCRa5EyZRct4hFoF4AxZ0jXPry6QKBgQD6yG/v/33Tu0cr88qajQWYAxo7AbOKMQP4Gxsocj3VIPYhICc72GQz6fML+1TqroMmwev+YuiXB24lGwB5c0DA64XoNRZK55H+eNBv/I5zX+NxN5ihrYiE0a7esrRGznlb/h01D3JOoV0olJllMc31KrdciVQPjY/RpYwoYzzQswKBgQDOcX8gw1JgRUj/095K7ilvNXfrrxeaRt6TXZ6rGh/icl8oRYq3t8ST1bWr44DOYEgHW4/V4QzT2HBsSiWJFxJImOBp5F8jEHCODgR4Pt1Pbm8DXN2IiUrB31/tqCNqc4OD9ZwIkZftmAvPV2uDmaku9OgpAs2zNwevmR3WvNZPDwKBgQDqfzv0PYIJ1weQ+LCNXapKXzRK0qdwY67jc20sn85jmSOtC+TD1+6ygGMM5CGeJDpspk4mm5QDjSYYOixyZCu7eT/IRsOmnOxt98hnvs/w4EvLlQH6xEpwb6VFhfJ+dxkRxQbIk739+nMiu/jHoA+G3T+BnsPkmylNDrCFH25BcwKBgE1UfF9kauX+7hJOZbVBsymiKLKTGs9CfrtK1VWYapsjZnuqWQTqhGswIWYqySQFMtX2uVFPhMOSDsKxn4/ToZiqE133GqAC13aOz6PPQI0xe8oRrjYn32Xx63gVhHaqoHf8t58KEpQAYWQghfh8xb/+IzzBfRYFpg5j16aJg+mHAoGAWimYYwKqzA2jyLmPAZ2wTK6aTd4thBahpATlCEsTk5GN4OQewf/ZqQhxzOy12RdNjpd6N2f6FpZ5bfj3kVZNHUDJPIpuiiuR78QGxY4XFVbXzgtXRWMuGuhdRGY/g53unmb5qEwAGxnEiGKULa63xMzQrdRLAxCxS/qQfZuE0nQ=
+app_id: 2016100100636093
+fomart: JSON
+ali_public_key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgvtZpo5OsFH9rsVQK9UUxiSPFbxk8pw3hcPJAksF2P9ad4hDs11xTVuhvfReCqs4hxMdyTZubtcK5qWCCDzpS5IOYOoVn9AAl+qhge6TPDQdJVOyADyFMgcGFP+0DmNiC1UXiZD0Hhrp3lsRZa/ZWxrc+Ll41RolYucFWYzCHzo6zizmpEjDsfWS/xlq9UieGKuR8ud3ime8P/Ti8jgUEc6eZpt8m9msHuLHgB1YLjXWs5TlWLqc8MV0hnj3sXZ3VMcvqFK/pmI4UQlWOpLEobgds1tGIJvyo6SD/ecf5w1EKzOKu/qJUopgNJYjBm3MEG4DmYHadkZhn734knV7aQIDAQAB
+sign_type: RSA2

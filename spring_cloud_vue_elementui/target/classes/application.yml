@@ -1,0 +1,6 @@
+server:
+  port: 8380 #服务端口
+
+spring:
+  application:
+    name: spring_cloud_vue_element_ui #服务名
