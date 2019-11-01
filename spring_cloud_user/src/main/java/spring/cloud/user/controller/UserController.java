@@ -22,6 +22,7 @@ public class UserController {
     public JSON login(HttpSession session){
         session.setAttribute("user","admin");
         JSONObject json = new JSONObject();
+
         json.put("success",true);
         json.put("message","登录成功");
         json.put("code",200);

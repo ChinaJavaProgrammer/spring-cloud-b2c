@@ -1,0 +1,28 @@
+server:
+  port: 8383 #服务端口
+
+spring:
+          application:
+            name: spring_cloud_message #服务名
+          redis:
+            port: 6379  #redis端口
+            password: redis!123 #redis密码
+            host: 106.13.42.41  #redis主机
+            jedis:  #jedis相关连接池设定
+              pool:
+                max-active: 8
+                min-idle: 0
+                max-wait: 8
+                max-idle: 0
+            sentinel: #redis哨兵配置
+              master: mymaster  #哨兵检测的主机点
+              nodes: 106.13.42.41:26379,106.13.42.41:26380,106.13.42.41:26381 #哨兵节点
+          cache:  #缓存配置
+            type: redis #缓存使用redis
+          datasource: #数据源配置
+            url: jdbc:mysql://localhost:3306/spring_cloud_vue?userUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC #数据库连接url
+            data-username: root #用户名
+            data-password: root #密码
+            driver-class-name: com.mysql.cj.jdbc.Driver #驱动
+          session:
+            store-type: redis
