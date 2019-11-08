@@ -1,0 +1,21 @@
+server:
+    port: 8060 #指定服务器端口
+spring:
+    application:
+        name: spring-cloud-zuul
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:admin@localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true #表示将自己的IP注册到Eureka Server如果不配置该属性或将其设为false则表示注册微服务所在的操作系统的hostname到Eureka Server
+#zuul:
+#  prefix: /movie #路由前缀
+#  routes:
+#    microservice-consumer-movie:
+#      path: /movie/**
+#      service-id: microservice-consumer-movie
+#  strip-prefix: false
+#自定义指定微服务的访问路径 f访问 http://localhost:8060/movie/movie/getUser/1 等于 http://localhost:8060/microservice-consumer-movie/movie/getUser/1
+#如果配置了前缀则访问http://localhost:8060/movie/microservice-consumer-movie/1 等于 http://localhost:8060/microservice-consumer-movie/movie/1
